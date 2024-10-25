@@ -1,0 +1,12 @@
+{{ define "main" }}
+<h1>Данные с API</h1>
+<ul>
+    {{ $data := .Site.Data.doctors_data }} <!-- Загружаем данные из JSON -->
+    {{ range $data.doctors }} <!-- Перебираем элементы -->
+    <li>
+        <h2>{{ .fullname }}</h2>
+        <p>{{ .description }}</p>
+    </li>
+    {{ end }}
+</ul>
+{{ end }}

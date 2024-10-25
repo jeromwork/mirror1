@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список докторов</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h1 class="text-center my-4">Наши доктора</h1>
+
+    <div class="row">
+        {{ $doctors := .Site.Data.doctors_data.doctors }} <!-- Загружаем данные из JSON -->
+        {{ range $doctors }}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="{{ .photo }}" class="card-img-top" alt="{{ .name }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ .fullname }}</h5>
+                    <p class="card-text"><strong>Специальность:</strong> {{ .specialty }}</p>
+                    <p class="card-text">{{ .bio }}</p>
+                </div>
+            </div>
+        </div>
+        {{ end }}
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
